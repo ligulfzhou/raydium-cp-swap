@@ -25,7 +25,8 @@ declare_id!("CPMDWBwJDtYax9qW7AyRuVC19Cc4L4Vcy4n2BHAbHkCW");
 declare_id!("CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C");
 
 pub mod admin {
-    use super::{pubkey, Pubkey};
+    use super::Pubkey;
+    use solana_program::pubkey;
     #[cfg(feature = "devnet")]
     pub const ID: Pubkey = pubkey!("adMCyoCgfkg7bQiJ9aBJ59H3BXLY3r5LNLfPpQfMzBe");
     #[cfg(not(feature = "devnet"))]
@@ -33,7 +34,8 @@ pub mod admin {
 }
 
 pub mod create_pool_fee_reveiver {
-    use super::{pubkey, Pubkey};
+    use super::Pubkey;
+    use solana_program::pubkey;
     #[cfg(feature = "devnet")]
     pub const ID: Pubkey = pubkey!("G11FKBRaAkHAKuLCgLM6K6NUc9rTjPAznRCjZifrTQe2");
     #[cfg(not(feature = "devnet"))]
@@ -152,7 +154,8 @@ pub mod raydium_cp_swap {
         init_amount_1: u64,
         open_time: u64,
     ) -> Result<()> {
-        instructions::initialize(ctx, init_amount_0, init_amount_1, open_time)
+        // instructions::initialize(ctx, init_amount_0, init_amount_1, open_time)
+        Ok(())
     }
 
     /// Deposit lp token to the pool
